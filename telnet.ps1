@@ -1,13 +1,11 @@
 Configuration telnet
 {
-    [CmdletBinding()]
+    Node localhost
     param ()
-
-    Import-DscResource -ModuleName 'PSDscResources'
-
-    WindowsFeatureSet WindowsFeatureSet1
+    
+    WindowsFeature Telnet-Client
     {
-        Name = @( 'Telnet-Client', 'RSAT-File-Services' )
+        Name = @( 'Telnet-Client)
         Ensure = 'Present'
         IncludeAllSubFeature = $true
         LogPath = 'C:\LogPath\Log.log'
